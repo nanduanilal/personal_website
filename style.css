@@ -5,25 +5,44 @@
 }
 
 body {
-  background-color: #f0ece3;
-  color: #1a1a1a;
-  font-family: 'Courier New', Courier, monospace;
+  background-color: #f2eeea;
+  color: #111;
+  font-family: ui-monospace, 'SF Mono', 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, monospace;
   font-size: 15px;
-  line-height: 1.55;
+  line-height: 1.6;
   padding: 40px 60px;
-  max-width: 720px;
+  max-width: 780px;
 }
 
 /* ── Header ── */
 
 header {
-  margin-bottom: 36px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 40px;
 }
 
 h1 {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   font-weight: normal;
-  letter-spacing: -0.01em;
+}
+
+nav {
+  display: flex;
+  gap: 28px;
+}
+
+nav a {
+  font-size: 0.9rem;
+  color: #111;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: #111;
+}
+
+nav a:hover {
+  opacity: 0.6;
 }
 
 /* ── Sections ── */
@@ -32,21 +51,20 @@ section {
   margin-bottom: 32px;
 }
 
-section h2 {
-  font-size: 0.72rem;
+h2 {
+  font-size: 0.9rem;
   font-weight: normal;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: #999;
+  margin-bottom: 14px;
   padding-bottom: 8px;
-  border-bottom: 1px solid #ccc;
-  margin-bottom: 16px;
+  border-bottom: 1px solid #c4c0b8;
 }
 
-section p {
+/* ── Bio ── */
+
+.bio {
   font-size: 0.95rem;
-  max-width: 580px;
-  line-height: 1.65;
+  line-height: 1.7;
+  max-width: 640px;
 }
 
 /* ── Investment interests ── */
@@ -57,84 +75,43 @@ section p {
   gap: 24px;
 }
 
-.interests-grid h3 {
+.category {
   font-size: 0.88rem;
-  font-weight: normal;
-  margin-bottom: 8px;
   color: #555;
+  margin-bottom: 10px;
 }
 
-.interest-list {
+/* ── Bullet list (PI-style: vertical line + dots) ── */
+
+.bullet-list {
   list-style: none;
+  border-left: 1px solid #bbb;
+  padding-left: 20px;
 }
 
-.interest-list li {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 6px 0;
-  font-size: 0.88rem;
-  border-top: 1px solid #d8d4cc;
+.bullet-list li {
+  position: relative;
+  padding: 4px 0;
+  font-size: 0.9rem;
 }
 
-.interest-list li:last-child {
-  border-bottom: 1px solid #d8d4cc;
-}
-
-.icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 26px;
-  height: 22px;
-  border: 1px solid #bbb;
-  border-radius: 3px;
-  font-size: 0.7rem;
-  color: #666;
-  flex-shrink: 0;
-}
-
-/* ── Simple interests list ── */
-
-.simple-list {
-  list-style: none;
-}
-
-.simple-list li {
-  padding: 6px 0;
-  font-size: 0.88rem;
-  border-top: 1px solid #d8d4cc;
-}
-
-.simple-list li:last-child {
-  border-bottom: 1px solid #d8d4cc;
-}
-
-/* ── Links ── */
-
-.links-list {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-}
-
-.links-list a {
-  font-size: 0.88rem;
-  color: #1a1a1a;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  text-decoration-color: #bbb;
-}
-
-.links-list a:hover {
-  text-decoration-color: #1a1a1a;
+.bullet-list li::before {
+  content: '•';
+  position: absolute;
+  left: -25px;
+  color: #111;
 }
 
 /* ── Responsive ── */
 
-@media (max-width: 600px) {
+@media (max-width: 580px) {
   body {
-    padding: 28px 20px;
+    padding: 28px 24px;
+  }
+
+  header {
+    flex-direction: column;
+    gap: 12px;
   }
 
   .interests-grid {
