@@ -86,11 +86,43 @@ h2 {
   font-weight: 600;
 }
 
-/* ── Inline interests ── */
+/* ── Media list (books, movies, music) ── */
 
-.inline-list {
+.media-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.media-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  padding: 7px 0;
+  border-top: 1px solid #d8d4cc;
   font-size: 0.93rem;
-  color: #333;
+}
+
+.media-list li:last-child {
+  border-bottom: 1px solid #d8d4cc;
+}
+
+.media-list .title {
+  color: #111;
+}
+
+.media-list .meta {
+  color: #888;
+  white-space: nowrap;
+  font-size: 0.85rem;
+}
+
+/* ── Empty placeholder ── */
+
+.empty {
+  font-size: 0.88rem;
+  color: #aaa;
 }
 
 /* ── Links ── */
