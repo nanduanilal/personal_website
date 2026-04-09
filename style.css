@@ -8,10 +8,9 @@ body {
   background-color: #f2eeea;
   color: #111;
   font-family: ui-monospace, 'SF Mono', 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, monospace;
-  font-size: 14px;
-  line-height: 1.65;
-  padding: 44px 60px;
-  max-width: 720px;
+  font-size: 15px;
+  line-height: 1.6;
+  padding: 40px 60px;
 }
 
 /* ── Header ── */
@@ -20,38 +19,51 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  padding-bottom: 28px;
-  border-bottom: 1px solid #c4c0b8;
-  margin-bottom: 28px;
+  max-width: 860px;
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #d8d4cc;
 }
 
 h1 {
-  font-size: 1.15rem;
+  font-size: 1.5rem;
   font-weight: normal;
 }
 
 nav {
   display: flex;
-  gap: 24px;
+  gap: 28px;
 }
 
 nav a {
+  font-size: 0.9rem;
   color: #111;
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 
 nav a:hover {
-  opacity: 0.5;
+  opacity: 0.6;
 }
 
-/* ── Bio ── */
+/* ── Split layout ── */
 
-.bio {
-  font-size: 0.93rem;
-  line-height: 1.75;
-  margin-bottom: 32px;
-  max-width: 600px;
+.layout {
+  display: flex;
+  gap: 80px;
+  align-items: flex-start;
+}
+
+.left {
+  width: 340px;
+  flex-shrink: 0;
+}
+
+.right {
+  flex: 1;
+  padding-top: 2px;
+  position: sticky;
+  top: 40px;
 }
 
 /* ── Sections ── */
@@ -61,37 +73,40 @@ section {
 }
 
 h2 {
-  font-size: 0.82rem;
+  font-size: 0.9rem;
   font-weight: normal;
-  color: #888;
   margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #d8d4cc;
+  color: #888;
 }
 
-/* ── Collison-style prose list ── */
+/* ── Toggleable section labels ── */
 
-.prose-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+h2.toggle {
+  cursor: pointer;
+  user-select: none;
 }
 
-.prose-list li {
+h2.toggle:hover {
+  color: #111;
+}
+
+h2.toggle.active {
+  color: #111;
+}
+
+/* ── Bio ── */
+
+.bio {
   font-size: 0.93rem;
-  padding-left: 12px;
-  border-left: 2px solid #111;
+  line-height: 1.7;
 }
 
-.prose-list li strong {
-  font-weight: 600;
-}
-
-/* ── Media list (books, movies, music) ── */
+/* ── Media list (books, movies, music, writing) ── */
 
 .media-list {
   list-style: none;
-  display: flex;
-  flex-direction: column;
 }
 
 .media-list li {
@@ -112,10 +127,56 @@ h2 {
   color: #111;
 }
 
+.media-list .title a {
+  color: #111;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: #bbb;
+}
+
+.media-list .title a:hover {
+  text-decoration-color: #111;
+}
+
 .media-list .meta {
   color: #888;
   white-space: nowrap;
   font-size: 0.85rem;
+}
+
+/* ── Prose list (AI interests) ── */
+
+.prose-list {
+  list-style: none;
+}
+
+.prose-list li {
+  padding: 6px 0;
+  font-size: 0.93rem;
+  border-top: 1px solid #d8d4cc;
+}
+
+.prose-list li:last-child {
+  border-bottom: 1px solid #d8d4cc;
+}
+
+/* ── Right panel ── */
+
+.panel {
+  display: none;
+}
+
+.panel.active {
+  display: block;
+}
+
+.panel h3 {
+  font-size: 0.9rem;
+  font-weight: normal;
+  color: #888;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #d8d4cc;
 }
 
 /* ── Empty placeholder ── */
@@ -125,27 +186,27 @@ h2 {
   color: #aaa;
 }
 
-/* ── Links ── */
-
-a {
-  color: #111;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
-a:hover {
-  opacity: 0.5;
-}
-
 /* ── Responsive ── */
 
-@media (max-width: 540px) {
+@media (max-width: 640px) {
   body {
-    padding: 28px 20px;
+    padding: 28px 24px;
   }
 
-  header {
+  .layout {
     flex-direction: column;
-    gap: 10px;
+    gap: 0;
+  }
+
+  .left {
+    width: 100%;
+  }
+
+  .right {
+    position: static;
+  }
+
+  h2.toggle.active {
+    margin-bottom: 12px;
   }
 }

@@ -16,94 +16,118 @@
     </nav>
   </header>
 
-  <main>
+  <div class="layout">
 
-    <section>
-      <h2>about me</h2>
-      <p class="bio">
-        based in the bay area after growing up in the Chicago
-        suburbs. investing and building technology startups.
-      </p>
-    </section>
+    <main class="left">
 
-<section>
-  <h2>writing</h2>
-  <p><a href="https://nandu.substack.com" target="_blank" rel="noopener">nandu.substack.com</a></p>
-</section>
+      <section>
+        <h2>about me</h2>
+        <p class="bio">
+          based in the bay area after growing up in the Chicago
+          suburbs. investing and building technology startups.
+        </p>
+      </section>
 
+      <section>
+        <h2>writing</h2>
+        <ul class="media-list">
+          <li><span class="title"><a href="https://nandu.substack.com/p/modern-software-moats" target="_blank" rel="noopener">Modern Software Moats</a></span></li>
+          <li><span class="title"><a href="https://nandu.substack.com/p/compound-startups" target="_blank" rel="noopener">Compound Startups</a></span></li>
+          <li><span class="title"><a href="https://nandu.substack.com/p/infrastructure-after-ai-scaling" target="_blank" rel="noopener">Infra After AI Scaling</a></span></li>
+        </ul>
+      </section>
 
-    <section>
-      <h2>books</h2>
-      <ul class="media-list">
-        <li>
-          <span class="title">Project Hail Mary</span>
-          <span class="meta">Andy Weir · 2021</span>
-        </li>
-        <li>
-          <span class="title">The Hero of Ages</span>
-          <span class="meta">Brandon Sanderson · 2023</span>
-        </li>
-        <li>
-          <span class="title">When Breath Becomes Air</span>
-          <span class="meta">Paul Kalanithi · 2016</span>
-        </li>
-        <li>
-          <span class="title">The Song of Achilles</span>
-          <span class="meta">Madeline Miller · 2012</span>
-        </li>
-      </ul>
-    </section>
+      <section>
+        <h2 class="toggle" data-panel="ai-interests">AI interests</h2>
+      </section>
 
-    <section>
-      <h2>movies</h2>
-      <ul class="media-list">
-        <li>
-          <span class="title">Parasite</span>
-          <span class="meta">Bong Joon-ho · 2019</span>
-        </li>
-        <li>
-          <span class="title">Inside Man</span>
-          <span class="meta">Spike Lee · 2006</span>
-        </li>
-        <li>
-          <span class="title">Dune: Part Two</span>
-          <span class="meta">Denis Villeneuve · 2024</span>
-        </li>
-        <li>
-          <span class="title">The Prestige</span>
-          <span class="meta">Christopher Nolan · 2006</span>
-        </li>
-      </ul>
-    </section>
+      <section>
+        <h2 class="toggle" data-panel="books">books</h2>
+      </section>
 
-    <section>
-      <h2>music</h2>
-      <ul class="media-list">
-        <li>
-          <span class="title">My Beautiful Dark Twisted Fantasy</span>
-          <span class="meta">Kanye West · 2010</span>
-        </li>
-        <li>
-          <span class="title">Take Care</span>
-          <span class="meta">Drake · 2011</span>
-        </li>
-        <li>
-          <span class="title">Enter the Wu-Tang (36 Chambers)</span>
-          <span class="meta">Wu-Tang Clan · 1993</span>
-        </li>
-        <li>
-          <span class="title">Dil Se</span>
-          <span class="meta">A.R. Rahman · 1998</span>
-        </li>
-      </ul>
-    </section>
+      <section>
+        <h2 class="toggle" data-panel="movies">movies</h2>
+      </section>
 
-    <section>
-      <h2>favorite products</h2>
-      <p class="empty">coming soon</p>
-    </section>
+      <section>
+        <h2 class="toggle" data-panel="music">music</h2>
+      </section>
 
-  </main>
+      <section>
+        <h2 class="toggle" data-panel="products">favorite products</h2>
+      </section>
+
+    </main>
+
+    <aside class="right">
+
+      <div class="panel" id="ai-interests">
+        <h3>AI interests</h3>
+        <ul class="prose-list">
+          <li><strong>reimagining labor verticals</strong></li>
+          <li><strong>physical world</strong></li>
+          <li><strong>creativity tools</strong></li>
+        </ul>
+      </div>
+
+      <div class="panel" id="books">
+        <h3>books</h3>
+        <ul class="media-list">
+          <li><span class="title">Project Hail Mary</span><span class="meta">Andy Weir · 2021</span></li>
+          <li><span class="title">The Hero of Ages</span><span class="meta">Brandon Sanderson · 2023</span></li>
+          <li><span class="title">When Breath Becomes Air</span><span class="meta">Paul Kalanithi · 2016</span></li>
+          <li><span class="title">The Song of Achilles</span><span class="meta">Madeline Miller · 2012</span></li>
+        </ul>
+      </div>
+
+      <div class="panel" id="movies">
+        <h3>movies</h3>
+        <ul class="media-list">
+          <li><span class="title">Parasite</span><span class="meta">Bong Joon-ho · 2019</span></li>
+          <li><span class="title">Inside Man</span><span class="meta">Spike Lee · 2006</span></li>
+          <li><span class="title">Dune: Part Two</span><span class="meta">Denis Villeneuve · 2024</span></li>
+          <li><span class="title">The Prestige</span><span class="meta">Christopher Nolan · 2006</span></li>
+        </ul>
+      </div>
+
+      <div class="panel" id="music">
+        <h3>music</h3>
+        <ul class="media-list">
+          <li><span class="title">My Beautiful Dark Twisted Fantasy</span><span class="meta">Kanye West · 2010</span></li>
+          <li><span class="title">Take Care</span><span class="meta">Drake · 2011</span></li>
+          <li><span class="title">Enter the Wu-Tang (36 Chambers)</span><span class="meta">Wu-Tang Clan · 1993</span></li>
+          <li><span class="title">Dil Se</span><span class="meta">A.R. Rahman · 1998</span></li>
+        </ul>
+      </div>
+
+      <div class="panel" id="products">
+        <h3>favorite products</h3>
+        <p class="empty">coming soon</p>
+      </div>
+
+    </aside>
+
+  </div>
+
+  <script>
+    document.querySelectorAll('.toggle').forEach(toggle => {
+      toggle.addEventListener('click', () => {
+        const targetId = toggle.dataset.panel;
+        const panel = document.getElementById(targetId);
+        const isActive = panel.classList.contains('active');
+
+        // close all
+        document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+        document.querySelectorAll('.toggle').forEach(t => t.classList.remove('active'));
+
+        // open if it wasn't already open
+        if (!isActive) {
+          panel.classList.add('active');
+          toggle.classList.add('active');
+        }
+      });
+    });
+  </script>
 
 </body>
 </html>
