@@ -10,7 +10,7 @@ body {
   font-family: ui-monospace, 'SF Mono', 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, monospace;
   font-size: 15px;
   line-height: 1.6;
-  padding: 40px 60px;
+  padding: 40px 48px;
 }
 
 /* ── Header ── */
@@ -50,12 +50,13 @@ nav a:hover {
 
 .layout {
   display: flex;
-  gap: 80px;
+  gap: 60px;
   align-items: flex-start;
+  max-width: 860px;
 }
 
 .left {
-  width: 340px;
+  width: 240px;
   flex-shrink: 0;
 }
 
@@ -67,10 +68,6 @@ nav a:hover {
 }
 
 /* ── Sections ── */
-
-section {
-  margin-bottom: 28px;
-}
 
 h2 {
   font-size: 0.9rem;
@@ -86,13 +83,33 @@ h2 {
 h2.toggle {
   cursor: pointer;
   user-select: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h2.toggle::after {
+  content: '+';
+  font-size: 1rem;
+  color: #bbb;
+  font-weight: normal;
+  transition: color 0.15s;
 }
 
 h2.toggle:hover {
   color: #111;
 }
 
+h2.toggle:hover::after {
+  color: #888;
+}
+
 h2.toggle.active {
+  color: #111;
+}
+
+h2.toggle.active::after {
+  content: '−';
   color: #111;
 }
 
