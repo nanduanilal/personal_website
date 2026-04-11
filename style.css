@@ -205,9 +205,8 @@ h2.toggle.active::after {
 
 #floating-cover {
   position: fixed;
-  width: 140px;
-  height: 140px;
-  object-fit: cover;
+  width: 160px;
+  height: auto;
   filter: grayscale(100%);
   opacity: 0;
   pointer-events: none;
