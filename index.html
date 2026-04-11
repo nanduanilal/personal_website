@@ -21,7 +21,6 @@
     <main class="left">
       <h2 class="toggle" data-panel="about">about me</h2>
       <h2 class="toggle" data-panel="writing">writing</h2>
-      <h2 class="toggle" data-panel="ai-interests">AI interests</h2>
       <h2 class="toggle" data-panel="books">books</h2>
       <h2 class="toggle" data-panel="movies">movies</h2>
       <h2 class="toggle" data-panel="music">music</h2>
@@ -47,42 +46,57 @@
         </ul>
       </div>
 
-      <div class="panel" id="ai-interests">
-        <h3>AI interests</h3>
-        <ul class="prose-list">
-          <li><strong>reimagining labor verticals</strong></li>
-          <li><strong>physical world</strong></li>
-          <li><strong>creativity tools</strong></li>
-        </ul>
-      </div>
-
       <div class="panel" id="books">
         <h3>books</h3>
         <ul class="media-list">
-          <li><span class="title">Project Hail Mary</span><span class="meta">Andy Weir · 2021</span></li>
-          <li><span class="title">The Hero of Ages</span><span class="meta">Brandon Sanderson · 2023</span></li>
-          <li><span class="title">When Breath Becomes Air</span><span class="meta">Paul Kalanithi · 2016</span></li>
-          <li><span class="title">The Song of Achilles</span><span class="meta">Madeline Miller · 2012</span></li>
+          <li data-cover="https://covers.openlibrary.org/b/isbn/9780593135204-L.jpg">
+            <span class="title">Project Hail Mary</span><span class="meta">Andy Weir · 2021</span>
+          </li>
+          <li data-cover="https://covers.openlibrary.org/b/isbn/9780765316897-L.jpg">
+            <span class="title">The Hero of Ages</span><span class="meta">Brandon Sanderson · 2023</span>
+          </li>
+          <li data-cover="https://covers.openlibrary.org/b/isbn/9780812988406-L.jpg">
+            <span class="title">When Breath Becomes Air</span><span class="meta">Paul Kalanithi · 2016</span>
+          </li>
+          <li data-cover="https://covers.openlibrary.org/b/isbn/9781408821985-L.jpg">
+            <span class="title">The Song of Achilles</span><span class="meta">Madeline Miller · 2012</span>
+          </li>
         </ul>
       </div>
 
       <div class="panel" id="movies">
         <h3>movies</h3>
         <ul class="media-list">
-          <li><span class="title">Parasite</span><span class="meta">Bong Joon-ho · 2019</span></li>
-          <li><span class="title">Inside Man</span><span class="meta">Spike Lee · 2006</span></li>
-          <li><span class="title">Dune: Part Two</span><span class="meta">Denis Villeneuve · 2024</span></li>
-          <li><span class="title">The Prestige</span><span class="meta">Christopher Nolan · 2006</span></li>
+          <li data-cover="https://upload.wikimedia.org/wikipedia/en/5/53/Parasite_%282019%29_BongJoonho_Poster.jpg">
+            <span class="title">Parasite</span><span class="meta">Bong Joon-ho · 2019</span>
+          </li>
+          <li data-cover="https://upload.wikimedia.org/wikipedia/en/7/79/Inside_man_film_poster.jpg">
+            <span class="title">Inside Man</span><span class="meta">Spike Lee · 2006</span>
+          </li>
+          <li data-cover="https://upload.wikimedia.org/wikipedia/en/5/52/Dune_Part_Two_poster.jpeg">
+            <span class="title">Dune: Part Two</span><span class="meta">Denis Villeneuve · 2024</span>
+          </li>
+          <li data-cover="https://upload.wikimedia.org/wikipedia/en/d/d2/Prestige_poster.jpg">
+            <span class="title">The Prestige</span><span class="meta">Christopher Nolan · 2006</span>
+          </li>
         </ul>
       </div>
 
       <div class="panel" id="music">
         <h3>music</h3>
         <ul class="media-list">
-          <li><span class="title">My Beautiful Dark Twisted Fantasy</span><span class="meta">Kanye West · 2010</span></li>
-          <li><span class="title">Take Care</span><span class="meta">Drake · 2011</span></li>
-          <li><span class="title">Enter the Wu-Tang (36 Chambers)</span><span class="meta">Wu-Tang Clan · 1993</span></li>
-          <li><span class="title">Dil Se</span><span class="meta">A.R. Rahman · 1998</span></li>
+          <li data-cover="https://upload.wikimedia.org/wikipedia/en/1/1c/Kanye_West_-_My_Beautiful_Dark_Twisted_Fantasy.jpg">
+            <span class="title">My Beautiful Dark Twisted Fantasy</span><span class="meta">Kanye West · 2010</span>
+          </li>
+          <li data-cover="https://upload.wikimedia.org/wikipedia/en/0/0b/Drake_Take_Care_cover.jpg">
+            <span class="title">Take Care</span><span class="meta">Drake · 2011</span>
+          </li>
+          <li data-cover="https://upload.wikimedia.org/wikipedia/en/5/53/Wu-Tang_36_Chambers.jpg">
+            <span class="title">Enter the Wu-Tang (36 Chambers)</span><span class="meta">Wu-Tang Clan · 1993</span>
+          </li>
+          <li data-cover="https://upload.wikimedia.org/wikipedia/en/8/8f/Dil_Se_1998_film_poster.jpg">
+            <span class="title">Dil Se</span><span class="meta">A.R. Rahman · 1998</span>
+          </li>
         </ul>
       </div>
 
@@ -95,22 +109,41 @@
 
   </div>
 
+  <!-- Floating cover image -->
+  <img id="floating-cover" alt="" aria-hidden="true" />
+
   <script>
+    // Toggle panels
     document.querySelectorAll('.toggle').forEach(toggle => {
       toggle.addEventListener('click', () => {
         const targetId = toggle.dataset.panel;
         const panel = document.getElementById(targetId);
         const isActive = panel.classList.contains('active');
 
-        // close all
         document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
         document.querySelectorAll('.toggle').forEach(t => t.classList.remove('active'));
 
-        // open if it wasn't already open
         if (!isActive) {
           panel.classList.add('active');
           toggle.classList.add('active');
         }
+      });
+    });
+
+    // Hover cover reveal
+    const cover = document.getElementById('floating-cover');
+
+    document.querySelectorAll('[data-cover]').forEach(item => {
+      item.addEventListener('mouseenter', () => {
+        cover.src = item.dataset.cover;
+        cover.classList.add('visible');
+      });
+      item.addEventListener('mousemove', (e) => {
+        cover.style.left = (e.clientX + 24) + 'px';
+        cover.style.top = (e.clientY - 80) + 'px';
+      });
+      item.addEventListener('mouseleave', () => {
+        cover.classList.remove('visible');
       });
     });
   </script>

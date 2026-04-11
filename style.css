@@ -134,6 +134,11 @@ h2.toggle.active::after {
   padding: 7px 0;
   border-top: 1px solid #d8d4cc;
   font-size: 0.93rem;
+  cursor: default;
+}
+
+.media-list li[data-cover] {
+  cursor: crosshair;
 }
 
 .media-list li:last-child {
@@ -194,6 +199,25 @@ h2.toggle.active::after {
   margin-bottom: 12px;
   padding-bottom: 8px;
   border-bottom: 1px solid #d8d4cc;
+}
+
+/* ── Floating cover on hover ── */
+
+#floating-cover {
+  position: fixed;
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  filter: grayscale(100%);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 100;
+  transition: opacity 0.15s ease;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+#floating-cover.visible {
+  opacity: 1;
 }
 
 /* ── Empty placeholder ── */
